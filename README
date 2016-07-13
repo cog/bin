@@ -1,0 +1,10 @@
+This is (part of) my bin directory.
+
+Things here usually serve a purpose, but most were quickly hacked together (some of them many, many years ago).
+
+	anagrams.pl - create anagrams of the letters of the first word received
+	check_aliases.pl - analyse your aliases
+	feriados_portugueses.pl - show Portuguese holidays
+	fileintersect.pl - all the lines from a first file that are present in one of the other files
+	highlight.pl - highlight patterns in a file
+	trim.pl - trims each line to a maximum number of chars
