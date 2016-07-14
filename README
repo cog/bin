@@ -7,4 +7,5 @@ Things here usually serve a purpose, but most were quickly hacked together (some
 	feriados_portugueses.pl - show Portuguese holidays
 	fileintersect.pl - all the lines from a first file that are present in one of the other files
 	highlight.pl - highlight patterns in a file
+	nextcycledir.pl - cycle through a series of directories (useful to have an alias for several folders)
 	trim.pl - trims each line to a maximum number of chars
