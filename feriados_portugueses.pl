@@ -19,25 +19,26 @@ my @years = @ARGV;
 
 # if the list of years is empty, replace with the current year
 unless (@years) {
-	@years = (localtime(time))[5] + 1900;
+    @years = ( localtime(time) )[5] + 1900;
 }
 
 # if there's an argument of the form 1000-2000, expand to the full list
-@years = map { /(\d+)-(\d+)/ ? ($1 .. $2) : $_ } @years;
-
+@years = map { /(\d+)-(\d+)/ ? ( $1 .. $2 ) : $_ } @years;
 
 # for each year...
-for my $year ( @years ) {
-	# get the holidays for that year
-	my $holidays = Date::Holidays::PT->holidays($year);
+for my $year (@years) {
 
-	print "Feriados Portugueses em $year:\n\n";
+    # get the holidays for that year
+    my $holidays = Date::Holidays::PT->holidays($year);
 
-	for my $month (sort { $a <=> $b } keys %$holidays) {
-	  for (sort { $a <=> $b } keys %{$holidays->{$month}} ) {
-	    printf ( "%02d/%02d/%04d (%s) - ", $_, $month, $year, Dow( $year, $month, $_ ) );
-	    print $holidays->{$month}->{$_};
-	    print "\n";
-	  }
-	}
+    print "Feriados Portugueses em $year:\n\n";
+
+    for my $month ( sort { $a <=> $b } keys %$holidays ) {
+        for ( sort { $a <=> $b } keys %{ $holidays->{$month} } ) {
+            printf( "%02d/%02d/%04d (%s) - ",
+                $_, $month, $year, Dow( $year, $month, $_ ) );
+            print $holidays->{$month}->{$_};
+            print "\n";
+        }
+    }
 }
