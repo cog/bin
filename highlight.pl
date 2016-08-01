@@ -21,9 +21,9 @@ our %attributes = (
                    '--white'      => 37,   '--ow'  => 47
                  );
 
-our @default_colours = map {"--$_"} qw/green yellow blue magenta red cyan ob or og oy ob om oc/;
+our @default_colours = map { "--$_" } qw/green yellow blue magenta red cyan ob or og oy ob om oc/;
 
-our $colour_for = { };
+our $colour_for = {};
 
 # arguments
 my @arguments;
@@ -32,18 +32,18 @@ while ( my $argument = shift @ARGV ) {
     if ( $argument =~ /^--/ ) {
         my $colour = $argument;
         $argument = shift @ARGV;
-        $colour_for->{ $argument } = $colour;
+        $colour_for->{$argument} = $colour;
     }
     else {
-        $colour_for->{ $argument } = colour_for( $argument );
+        $colour_for->{$argument} = colour_for($argument);
     }
     push @arguments, $argument;
 }
 
 # highlighting
 while (<>) {
-    for my $pattern ( @arguments ) {
-        my $colour = colour_for( $pattern );
+    for my $pattern (@arguments) {
+        my $colour = colour_for($pattern);
 
         s/($pattern)/\e[$attributes{ $colour }m$1\e[0m/gi;
     }
