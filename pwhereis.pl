@@ -1,0 +1,31 @@
+#!/usr/bin/perl -lw
+use strict;
+
+my $command = shift || exit;
+
+for ( split /:/, $ENV{PATH} ) {
+  if ( -e "$_/$command" ) {
+    print $_;
+  }
+}
+
+=head1 pwhereis.pl
+
+pwhereis.pl - a more thorough version of whereis
+
+=head1 ABSTRACT
+
+Just like whereis, but shows *all* the paths where the executable is.
+
+=head1 AUTHOR
+
+Jose Alves de Castro, E<lt>cog [at] cpan [dot] org<gt>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2004 by Jose Alves de Castro
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut
