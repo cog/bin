@@ -8,6 +8,7 @@ Things here usually serve a purpose, but most were quickly hacked together (some
 	fileintersect - lines from a first file that are present in one of other files
 	highlight - highlight patterns in a file
 	moonphases - phases of the moon
-	pwhereis - a more thorough version of whereis
 	nextcycledir - cycle through a series of directories
+	samefile - check for duplicated files
+	pwhereis - a more thorough version of whereis
 	trim - trims each line to a maximum number of chars
