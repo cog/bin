@@ -4,15 +4,15 @@ use strict;
 my $file = shift || exit;
 
 for (@ARGV) {
-  open (STDIN, $file) || die $!;
-  while (<>) {
-    $_{$_}=1;
-  }
-  close STDIN;
+    open( STDIN, $file ) || die $!;
+    while (<>) {
+        $_{$_} = 1;
+    }
+    close STDIN;
 }
 
-open (STDIN, $file) || die $!;
+open( STDIN, $file ) || die $!;
 while (<>) {
-  print unless $_{$_};
+    print unless $_{$_};
 }
 close STDIN;
