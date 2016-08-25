@@ -6,6 +6,7 @@ Things here usually serve a purpose, but most were quickly hacked together (some
 	check_aliases - analyse your aliases
 	feriados_portugueses - show Portuguese holidays
 	fileintersect - lines from a first file that are present in one of other files
+	filewithout - lines of a file that are not in another file
 	highlight - highlight patterns in a file
 	moonphases - phases of the moon
 	nextcycledir - cycle through a series of directories
