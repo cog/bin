@@ -4,9 +4,9 @@ use strict;
 my $command = shift || exit;
 
 for ( split /:/, $ENV{PATH} ) {
-  if ( -e "$_/$command" ) {
-    print $_;
-  }
+    if ( -e "$_/$command" ) {
+        print $_;
+    }
 }
 
 =head1 pwhereis.pl
