@@ -12,4 +12,5 @@ Things here usually serve a purpose, but most were quickly hacked together (some
 	nextcycledir - cycle through a series of directories
 	samefile - check for duplicated files
 	pwhereis - a more thorough version of whereis
+	timing - how much time has spent since the invocation of the script
 	trim - trims each line to a maximum number of chars

@@ -1,0 +1,101 @@
+#!/usr/bin/perl -w -s
+use strict;
+use local::lib;
+use 5.008;
+
+our $h;
+
+die "
+Usage: timing [OPTION]
+Show passed time.
+
+  -gap=GAP              how many second between prints (1 by default)
+  -interval=INTERVAL    how many seconds to wait until beeping after each enter (60 by default)
+  -h                    this help
+" if $h;
+
+my $start = time;       # let's see what time it is
+
+our $gap      ||=  1;   # how many seconds between prints
+our $interval ||= 60;   # how many seconds to wait until beeping after each enter
+
+if (fork) {
+    while (1) {         # and from now on...
+      local $|   = 1;
+      my    $now = time;    # see what time it is now
+
+      my ( $sec, $min, $hour ) = ( $now - $start, 0, 0 );  # seconds passed
+
+      while ( $sec >= 3600 ) { $sec -= 3600; $hour++ }     # hours
+      while ( $sec >= 60   ) { $sec -= 60  ; $min++  }     # minutes
+
+      printf ("\r%02d:%02d:%02d",$hour,$min,$sec);         # print time
+      sleep($gap);                                         # wait a while
+    }
+}
+else {
+    while (1) {
+        <>; # wait until enter is pressed
+        sleep $interval;
+        print "\nGO FOR IT!\a\n";
+    }
+}
+
+__END__
+
+=head1 timing
+
+timing - show passed time
+
+=head1 SYNOPSIS
+
+    timing.pl
+
+=head1 ABSTRACT
+
+  The purpose of timing is to see how much time has spent since the invocation
+of the script.
+
+=head1 EXAMPLES
+
+Using the script to count the time and warn between 5 second intervals (note: we're pressing Enter at 00:00:03).
+
+    $ timing.pl -interval=5
+    00:00:03
+    00:00:08
+    GO FOR IT!
+    00:00:11^C
+
+A practical example would be to do some push-up sets with 30 second intervals between them:
+
+    $ timing.pl -interval=30
+    00:00:38
+    00:01:08
+    GO FOR IT!
+    00:01:27
+    00:01:57
+    GO FOR IT!
+    00:02:01^C
+
+In the above example, we:
+
+    * start the script
+    * do some push-ups
+    * hit Enter when we stop (at 00:00:38, in this example)
+    * wait 30 seconds until the script tells us "GO FOR IT" (at 00:01:08, 30 seconds after we pressed Enter)
+    * do some more push-ups
+    * his Enter again when we stop (at 00:01:27, this time)
+    * etc.
+
+=head1 AUTHOR
+
+Jose Alves de Castro, E<lt>cog [at] cpan [dot] org<gt>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2004 by Jose Alves de Castro
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut
