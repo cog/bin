@@ -14,28 +14,28 @@ Show passed time.
   -h                    this help
 " if $h;
 
-my $start = time;       # let's see what time it is
+my $start = time;    # let's see what time it is
 
-our $gap      ||=  1;   # how many seconds between prints
-our $interval ||= 60;   # how many seconds to wait until beeping after each enter
+our $gap      ||= 1;   # how many seconds between prints
+our $interval ||= 60;  # how many seconds to wait until beeping after each enter
 
 if (fork) {
-    while (1) {         # and from now on...
-      local $|   = 1;
-      my    $now = time;    # see what time it is now
+    while (1) {        # and from now on...
+        local $| = 1;
+        my $now = time;    # see what time it is now
 
-      my ( $sec, $min, $hour ) = ( $now - $start, 0, 0 );  # seconds passed
+        my ( $sec, $min, $hour ) = ( $now - $start, 0, 0 );    # seconds passed
 
-      while ( $sec >= 3600 ) { $sec -= 3600; $hour++ }     # hours
-      while ( $sec >= 60   ) { $sec -= 60  ; $min++  }     # minutes
+        while ( $sec >= 3600 ) { $sec -= 3600; $hour++ }       # hours
+        while ( $sec >= 60 )   { $sec -= 60;   $min++ }        # minutes
 
-      printf ("\r%02d:%02d:%02d",$hour,$min,$sec);         # print time
-      sleep($gap);                                         # wait a while
+        printf( "\r%02d:%02d:%02d", $hour, $min, $sec );       # print time
+        sleep($gap);                                           # wait a while
     }
 }
 else {
     while (1) {
-        <>; # wait until enter is pressed
+        <>;    # wait until enter is pressed
         sleep $interval;
         print "\nGO FOR IT!\a\n";
     }
