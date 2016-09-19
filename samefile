@@ -4,10 +4,10 @@ use warnings;
 use File::Compare;
 use Getopt::Std;
 
-our %opts  = get_options();
+our %opts = get_options();
 
-show_help()             if $opts{h};
-show_version()          if $opts{V};
+show_help()    if $opts{h};
+show_version() if $opts{V};
 
 get_sizes();
 find_copies();
@@ -15,44 +15,46 @@ find_copies();
 # subroutines
 
 sub find_copies {
-  our %sizes;
-  for (values %sizes) {
-    my @files = @{$_};
+    our %sizes;
+    for ( values %sizes ) {
+        my @files = @{$_};
 
-    while (my $f = shift @files) {
-      @files || next;
-      my @copies = grep {! compare($f, $_)} @files or next;
-      print "\"$f\"", (map {" \"$_\""} @copies), "\n";
-      for my $s (@copies) {@files = grep {$_ ne $s} @files}
+        while ( my $f = shift @files ) {
+            @files || next;
+            my @copies = grep { !compare( $f, $_ ) } @files or next;
+            print "\"$f\"", ( map { " \"$_\"" } @copies ), "\n";
+            for my $s (@copies) {
+                @files = grep { $_ ne $s } @files;
+            }
+        }
     }
-  }
 }
 
 sub get_sizes {
-  our %sizes;
-  for (@ARGV) {
-    if (-f) {
-      push @{$sizes{(stat)[7]}}, $_;
+    our %sizes;
+    for (@ARGV) {
+        if (-f) {
+            push @{ $sizes{ (stat)[7] } }, $_;
+        }
+        elsif ( $opts{r} && -d ) {
+            push @ARGV, <"$_/*">;
+        }
     }
-    elsif ($opts{r} && -d) {
-      push @ARGV, <"$_/*">;
-    }
-  }
 }
 
 sub get_options {
-  my %opts;
-  getopts('rhV', \%opts );
+    my %opts;
+    getopts( 'rhV', \%opts );
 
-  for my $key ( keys %opts ) {
-    $opts{$key} = 1 unless defined $opts{$key}
-  }
+    for my $key ( keys %opts ) {
+        $opts{$key} = 1 unless defined $opts{$key};
+    }
 
-  %opts;
+    %opts;
 }
 
 sub show_help {
-  die "Usage: samefile file1 file2
+    die "Usage: samefile file1 file2
  or:   samefile -r *
 samefile: identifies equal files
 
@@ -64,5 +66,5 @@ Options:
 }
 
 sub show_version {
-  die "samefile version 0.01\n";
+    die "samefile version 0.01\n";
 }
