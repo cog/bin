@@ -24,7 +24,7 @@ for my $ignore_dir ( split /,/, $ignore_dirs ) {
     $ignore->{$ignore_dir}++;
 }
 
-@ARGV = grep { !$ignore->{$_} } @ARGV;
+local @ARGV = grep { !$ignore->{$_} } @ARGV;
 
 # if there is no dir, bail out
 @ARGV or print '.' and exit;
