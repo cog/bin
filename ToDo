@@ -1,3 +1,4 @@
 TODO:
 
+    feriados_portugueses - when displaying holidays of current year, show an additional mark pointing when we are right now
     fileintersect - should also accept just one file and standard input
