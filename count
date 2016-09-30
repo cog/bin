@@ -1,0 +1,16 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+my $lines = {};
+
+while (<>) {
+  chomp;
+
+  $lines->{$_}++;
+}
+
+for (sort {$lines->{$a} <=> $lines->{$b}} keys %{$lines}) {
+  print "$lines->{$_}: $_\n";
+}

@@ -4,6 +4,7 @@ Things here usually serve a purpose, but most were quickly hacked together (some
 
 	anagrams - create anagrams of the letters of the first word received
 	check_aliases - analyse your aliases
+	count - count how many times each line appears
 	feriados_portugueses - show Portuguese holidays
 	fileintersect - lines from a first file that are present in one of other files
 	filewithout - lines of a file that are not in another file
