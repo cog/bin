@@ -26,7 +26,7 @@ unless (@years) {
 @years = map { /(\d+)-(\d+)/ ? ( $1 .. $2 ) : $_ } @years;
 
 # for each year...
-for my $year (@years) {
+for my $year (sort @years) {
 
     # get the holidays for that year
     my $holidays = Date::Holidays::PT->holidays($year);

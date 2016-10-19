@@ -9,4 +9,3 @@ TODO:
 	- option to show how long until the next holiday
 	- show different colors for holidays in weekdays or weekends
     fileintersect - should also accept just one file and standard input
-  - sort years in feriados_portugueses
