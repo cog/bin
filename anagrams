@@ -13,12 +13,12 @@ for ( sort ( u( map { join '', @$_ } p( split //, shift ) ) ) ) {
 # this removes repeated elements from a list
 sub u {
     my %v;
-    grep { !$v{$_}++ } @_;
+    return grep { !$v{$_}++ } @_;
 }
 
 # and this is a function that calculates permutations... it could be better...
 sub p {
-    @_
+    return @_
       ? map {
         my $n = $_;
         map { [ $_[$n], @$_ ] } p( @_[ 0 .. $n - 1, $n + 1 .. $#_ ] )
