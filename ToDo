@@ -1,7 +1,12 @@
 TODO:
 
+	Makefile
+	  - create a Makefile
+
 	anagrams
+	  - create a test script
 	  - support an option to show only compositions that are X letters long
+	  - option to print everything in the same line (no line breaks, spaces instead)
 
     count
 	  - align the lines (by padding accordingly to the biggest number)
