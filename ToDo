@@ -1,23 +1,20 @@
 TODO:
 
-	Makefile
-	  - create a Makefile
-
-	anagrams
-	  - create a test script
-	  - support an option to show only compositions that are X letters long
-	  - option to print everything in the same line (no line breaks, spaces instead)
+    anagrams
+      - create a test script
+      - support an option to show only compositions that are X letters long
+      - option to print everything in the same line (no line breaks, spaces instead)
 
     count
-	  - align the lines (by padding accordingly to the biggest number)
-	  - show only lines that appear more than X or less than Y times
+      - align the lines (by padding accordingly to the biggest number)
+      - show only lines that appear more than X or less than Y times
 
     feriados_portugueses
-	  - when displaying holidays of current year, show an additional mark pointing when we are right now
-	  - option to show whether each holiday has already passed
-	  - option to show how long until the next holiday
-	  - show different colors for holidays in weekdays or weekends
+      - when displaying holidays of current year, show an additional mark pointing when we are right now
+      - option to show whether each holiday has already passed
+      - option to show how long until the next holiday
+      - show different colors for holidays in weekdays or weekends
 
     fileintersect
       - should also accept just one file and standard input
-	  - option to select whether we want to intersect the first file with *any* of the others or the first file with *all* of the others
+      - option to select whether we want to intersect the first file with *any* of the others or the first file with *all* of the others
