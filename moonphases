@@ -1,10 +1,12 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
+
+use warnings;
 use strict;
 
 # moonphases returns 5 moonphases
 # moonphases X does calculations X days in the future
 
-use Astro::MoonPhase;
+use Astro::MoonPhase qw/phasehunt/;
 
 my $time = time;
 
