@@ -50,7 +50,7 @@ sub get_options {
         $opts{$key} = 1 unless defined $opts{$key};
     }
 
-    %opts;
+    return %opts;
 }
 
 sub show_help {
