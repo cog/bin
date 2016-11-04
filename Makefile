@@ -3,5 +3,8 @@ SCRIPTS = anagrams check_aliases count feriados_portugueses fileintersect filewi
 test:
 	perl -MTest::Harness -e 'runtests(<t/*.t>)'
 
+clean:
+	rm -rf cover_db/
+
 critic:
 	perlcritic $(SCRIPTS)
