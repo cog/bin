@@ -55,10 +55,10 @@ display_selection( "least recently used aliases", long_ago_aliases() );
 
 # SUB ROUTINES
 
-sub top_aliases         { sort_aliases( 'total',     1,  $top_size ) }
-sub bot_aliases         { sort_aliases( 'total',     -1, $bottom_size ) }
-sub most_recent_aliases { sort_aliases( 'last_used', -1, $top_size ) }
-sub long_ago_aliases    { sort_aliases( 'last_used', 1,  $bottom_size ) }
+sub top_aliases         { return sort_aliases( 'total',     1,  $top_size ) }
+sub bot_aliases         { return sort_aliases( 'total',     -1, $bottom_size ) }
+sub most_recent_aliases { return sort_aliases( 'last_used', -1, $top_size ) }
+sub long_ago_aliases    { return sort_aliases( 'last_used', 1,  $bottom_size ) }
 
 sub sort_aliases {
     my $sort_param = shift;
@@ -86,4 +86,5 @@ sub display_selection {
     }
 
     print "\n";
+    return;
 }
