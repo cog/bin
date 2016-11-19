@@ -28,6 +28,7 @@ sub find_copies {
             }
         }
     }
+    return;
 }
 
 sub get_sizes {
