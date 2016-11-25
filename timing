@@ -2,7 +2,6 @@
 
 use warnings;
 use strict;
-use local::lib;
 use 5.008;
 
 our $h;
