@@ -1,5 +1,7 @@
-#!/usr/bin/perl -lw
+#!/usr/bin/perl -l
+
 use strict;
+use warnings;
 
 my $command = shift || exit;
 
