@@ -19,5 +19,8 @@ TODO:
       - should also accept just one file and standard input
       - option to select whether we want to intersect the first file with *any* of the others or the first file with *all* of the others
 
+    highlight
+      - option to highlight only words that are alphabetically lower or higher than target word
+
     others:
       - move Perl::Critic tests to a test file
