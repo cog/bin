@@ -12,6 +12,7 @@ Things here usually serve a purpose, but most were quickly hacked together (some
 	moonphases - phases of the moon
 	nextcycledir - cycle through a series of directories
 	samefile - check for duplicated files
+	parsetime - parses time into longer time periods
 	pwhereis - a more thorough version of whereis
 	timing - how much time has spent since the invocation of the script
 	trim - trims each line to a maximum number of chars

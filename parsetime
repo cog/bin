@@ -1,0 +1,42 @@
+#!/usr/bin/perl -p
+
+use warnings;
+use strict;
+
+our $timeregex = qr/(?:(\d+) hours?, )?(\d+) minutes?/;
+
+
+if ( /$timeregex/ ) {
+	my $hours   = $1;
+	my $minutes = $2;
+
+	my $months = 0;
+	my $weeks  = 0;
+	my $days   = 0;
+
+	while ( $hours > 24 ) { $hours -= 24; $days++ }
+	while ( $days  > 30 ) { $days  -= 30; $months++ }
+	while ( $days  > 7 )  { $days  -= 7;  $weeks++ }
+
+	my $new_time = build_string( $months, $weeks, $days, $hours, $minutes );
+	s/$timeregex/$new_time/g;
+}
+
+sub build_string {
+	my ($months, $weeks, $days, $hours, $minutes) = @_;
+	my @components;
+
+
+	for (qw/month week day hour minute/) {
+		my $value = shift;
+		$value || next;
+		if ( $value == 1 ) {
+			push @components, "$value $_";
+		}
+		else {
+			push @components, "$value $_" . "s";
+		}
+	}
+
+	return join ", ", @components;
+}
