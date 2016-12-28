@@ -22,5 +22,8 @@ TODO:
     highlight
       - option to highlight only words that are alphabetically lower or higher than target word
 
+    parsetime
+	  - update the regex to support hours without minutes (e.g., "50 hours")
+
     others:
       - move Perl::Critic tests to a test file
