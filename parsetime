@@ -7,8 +7,8 @@ our $timeregex = qr/(?:(\d+) hours?, )?(\d+) minutes?/;
 
 
 if ( /$timeregex/ ) {
-	my $hours   = $1;
-	my $minutes = $2;
+	my $hours   = $1 || 0;
+	my $minutes = $2 || 0;
 
 	my $months = 0;
 	my $weeks  = 0;
